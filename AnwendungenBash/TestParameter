@@ -1,0 +1,10 @@
+#! /bin/bash
+#
+#logger "Test begonnen";
+
+echo Parameter $1;
+echo Parameter $2;
+
+
+
+#logger "Test beendet";

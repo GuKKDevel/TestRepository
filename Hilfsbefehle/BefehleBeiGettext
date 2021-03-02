@@ -1,0 +1,5 @@
+find /home/gitRepos/CAcert/cats/ -name *.php -type f -print0 | xargs -0 xgettext -L php --from-code=utf-8 -k_ -o test.pot --add-comments
+find /home/gitRepos/CAcert/cats/ -name *.php -type f -print0 | xargs -0 xgettext --from-code=UTF-8 --package-name='CAcert/cats' --package-version='0.1' --add-comments  	-L php -k_ -o /home/gitRepos/CAcert/cats/lang/messages.pot  
+
+cd .../cats/lang ->	
+msginit -i messages.pot -o fr.po --locale=fr

@@ -1,0 +1,8 @@
+Bei merge-Konflikten Lösung speichern:
+git config --global rerere.enabled true
+
+Bei push die Anwenderinformationen speichern:
+git config --global credential.helper store
+
+Alias generieren:
+für Anzeige -> git config alias.lol 'log --oneline --graph --decorate --all'

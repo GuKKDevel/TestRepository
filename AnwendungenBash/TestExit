@@ -1,0 +1,7 @@
+#! /bin/bash
+#
+#logger "Test begonnen";
+
+exit $1;
+
+#logger "Test beendet";
