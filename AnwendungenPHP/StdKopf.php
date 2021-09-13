@@ -1,6 +1,6 @@
 <?php 
 /* 
- * Projekt Reisemobiltagebuch
+ * Projekt 
  * Unterprojekt PHP-Module
  * Modul Datenbank-Bereitstellung
  * 

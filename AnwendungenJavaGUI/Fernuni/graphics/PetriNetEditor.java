@@ -101,7 +101,7 @@ public class PetriNetEditor
         this.setTitle("6513522_Gödderz_Karl-Heinz");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setBackground(Color.WHITE);
-        this.setPreferredSize(new Dimension(500, 500));
+        this.setPreferredSize(new Dimension(1000, 1000));
         this.pack();
         this.setVisible(true);
 
