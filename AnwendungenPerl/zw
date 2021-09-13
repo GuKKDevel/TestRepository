@@ -1,0 +1,60 @@
+
+
+# Standardvariablen 
+
+my $nz = "\n";
+my $anzParm = @ARGV;
+my $logzeile = "";
+
+# Verarbeiten der übergebenen Parameter
+#
+# Prüfen Anzahl Parameter
+#
+if ($anzParm < 2) {
+	die "Anzahl $anzParm für Parameter zu gering".$nz;
+}
+#
+# Prüfen ob die Art des Datenstroms korrekt ist
+#
+if ($ARGV[0] ne "sichern" && $ARGV[0] ne "wiederherstellen"){
+	die "Art des Datenstroms nicht korrekt\nerlaubt sind \"sichern\" und \"wiederherstellen\"$nz";
+}
+#
+# Prüfen Existenz des Quell-Verzeichnis
+#
+my $kopierenQuelle = $ARGV[1];
+if (! -d $kopierenQuelle) {die "$kopierenQuelle ist kein Verzeichnis".$nz."Programm abgebrochen".$!;}
+#print "$kopierenQuelle $nz";
+#
+# Prüfen Existenz des Ziel-Verzeichnis
+#
+my $kopierenZiel = $ARGV[2];
+if ( -f $kopierenZiel ) {                                    # Ziel existiert als Datei
+    die "$kopierenZiel existiert und ist eine Datei$nz";
+}
+elsif (! -e $kopierenZiel) {                                    # Ziel existiert nicht 
+    my $abschluss = substr $kopierenQuelle ,-1,1 ;
+    if ($abschluss ne "/") {
+        mkdir $kopierenZiel or die "Fehler beim Anlegen des ZielVerzeichnis($!)$nz";
+    }   
+    else {
+ 
+    }
+}
+
+print "Vorgesehenes Kopieren von Ordner:".$nz.$kopierenQuelle.$nz."nach Ordner".$nz.$kopierenZiel.$nz; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+print $nz;

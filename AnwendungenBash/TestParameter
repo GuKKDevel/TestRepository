@@ -2,8 +2,13 @@
 #
 #logger "Test begonnen";
 
-echo Parameter $1;
-echo Parameter $2;
+echo 1. Parameter \#$1\#"$1"\#;
+echo 2. Parameter \#$2\#"$2"\#;
+
+V1=$1;
+echo "$V1";
+echo "$2";
+echo $V1;
 
 
 
