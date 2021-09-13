@@ -1,3 +1,0 @@
-module GuKKiCal {
-	exports main;
-}
