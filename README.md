@@ -21,3 +21,7 @@ Python-Anwendungen
 
 - Hilfsbefehle<br>
 Befehle, die nützlich sein könnten
+
+- Dokumentation<br>
+  - LaTeX
+  
