@@ -1,0 +1,54 @@
+\section{Daten für das Honigbuch}
+Dieser Teil der Ideensammlung betrifft die Daten, die für die Führung des
+Honigbuchs benötigt werden. Sie umfassen die kompletten Arbeitsschritte, vom
+Schleudern über das Vermischen, das Abfüllen bis zum Verkauf.
+
+
+Zur Dokumentation sind hierfür folgende Daten zu speichern
+\begin{itemize}
+  \item \label{DBschl}  \textbf{Schleuderung}\index{Schleuderung}
+  \begin{itemize}
+\item eindeutige Kennzeichnung für die Schleuderung [Primärschlüssel]    \item Datum der Schleuderung
+    \item Kennzeichnung Herkunft des Honigs [Fremdschlüssel]
+    \item Besonderheiten/Bemerkungen
+  \end{itemize}
+  \item \textbf{Gebinde}\label{DBgeb}\index{Gebinde}
+  \begin{itemize}
+    \item eindeutige Kennzeichnung für das Gebinde [Primärschlüssel]
+    \item Typ des Gebindes [Fremdschlüssel]
+    \item Benennung des Gebindes
+    \item Kennzeichen des Zustands [Fremdschlüssel]
+  \end{itemize}
+  \item \textbf{Gebindetyp}\label{DBgebt}\index{Gebindetyp}
+  \begin{itemize}
+    \item eindeutige Kennzeichnung für Gebindetyp [Primärschlüssel]
+    \item nähere Angaben zum Gebindetyp
+    \begin{itemize}
+      \item Volumen
+      \item Gewicht
+      \item Material
+      \item Warenzeichen
+    \end{itemize}
+  \end{itemize}
+  \item \textbf{Gebindezustand}\label{DBgebz}\index{Gebindezustand}
+  \begin{itemize}
+    \item eindeutige Kennzeichnung für Gebindezustand [Primärschlüssel]
+    \begin{description}
+\item Erläuterung des Schlüssels
+\item[L] leer
+\item[T] teilweise gefüllt
+\item[V] voll
+\end{description}
+  \end{itemize}
+\item \textbf{Gebindeverwendung}\label{DBgebv}\index{Gebindeverwendung}  \begin{itemize}
+\item Kennzeichnung der Gebinde/Schleuderung-Zuordnung [Primärschlüssel]    \item Schleuderung [Fremdschlüssel]
+    \item Gebinde [Fremdschlüssel]
+    \item Wassergehalt
+  \end{itemize}
+\end{itemize}
+\subsection{Bearbeitungshinweise}\index{Bearbeitungshinweise}
+
+\begin{itemize}
+\item Beim Anlegen einer Schleuderung (s.o.) ist darauf zu achten, dass
+der Gebindezustand (s.o.) auf jeden Fall zu bearbeiten ist.
+\end{itemize}

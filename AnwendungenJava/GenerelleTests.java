@@ -9,7 +9,14 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.InetAddress;
 import java.util.Scanner;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Formatter;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
+import java.util.logging.Logger;
 
 /**
  * @author GuKKDevel
@@ -19,16 +26,45 @@ public class GenerelleTests {
 	/**
 	 * 
 	 */
+	Logger logger = Logger.getLogger("AnwendungenJava");
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		GenerelleTests test1 = new GenerelleTests();
-//		test1.ausgebenSystem();
+		test1.loggerEinrichten();
+		test1.ausgebenSystem();
 //		System.out.println(test1.osIstLinux());
-//		System.out.println(test1.bestimmenDateistamm("Pfad/zur/Datei"));
-		test1.lesenDatei("iCalender/temp.ics");
+//		System.out.println(test1.bestimmenDateistamm("/Testdaten/iCalender/temp0.ics"));
+//		test1.lesenDatei("/Testdaten/iCalender/temp.ics");
+	}
+
+	/**
+	 * 
+	 * Einrichten des Loggingsystems
+	 * 
+	 * Der Logger muss in allen Klassen definiert werden,
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
+	private void loggerEinrichten() {
+		logger.setLevel(Level.INFO);
+//		Handler handler = new FileHandler("/home/programmieren/TestFiles/iCalender/temp.log");
+		Handler handler = new ConsoleHandler();
+		handler.setLevel(Level.FINEST);
+		handler.setFormatter(new Formatter() {
+			@Override
+			public String format(LogRecord record) {
+				return record.getSourceClassName() + "." + record.getSourceMethodName() + ": " + record.getMessage()
+						+ "\n";
+			}
+		});
+		logger.addHandler(handler);
+		logger.setUseParentHandlers(false);
+		logger.finest("begonnen");
 	}
 
 	/**
@@ -54,8 +90,9 @@ public class GenerelleTests {
 				zeile = eingabeScanner.nextLine();
 				System.out.println(zeile);
 			}
-			
+
 		} catch (FileNotFoundException e) {
+			logger.info("Datei nicht gefunden");
 			System.out.println("Datei nicht gefunden");
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -72,9 +109,9 @@ public class GenerelleTests {
 	private String bestimmenDateistamm(String pfad) {
 
 		if (osIstLinux()) {
-			return "/home/programmieren/TestFiles/" + pfad;
+			return "/home/programmieren/" + pfad.replace("\\", "/");
 		} else {
-			return "C:\\Users\\GuKKDevel\\Desktop\\Workspace\\Testdaten\\" + pfad.replace("/", "\\");
+			return System.getProperty("user.home") + "\\Desktop\\Workspace\\" + pfad.replace("/", "\\");
 		}
 	}
 
@@ -89,10 +126,16 @@ public class GenerelleTests {
 	 * Alle Properties der System-Klasse ausgeben
 	 */
 	private void ausgebenSystem() {
+		try {
+			System.out.println("Rechner: " + InetAddress.getLocalHost().getHostName());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println();
 		String txt = System.getProperties().toString();
 		while (txt.indexOf(",") > 0) {
 			System.out.println(txt.substring(0, txt.indexOf(",") + 1));
-			txt = txt.substring(txt.indexOf(",") + 1);
+			txt = txt.substring(txt.indexOf(",") + 2);
 
 		}
 		System.out.println(txt);
