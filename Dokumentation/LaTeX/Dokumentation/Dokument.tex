@@ -1,16 +1,18 @@
 \documentclass[12pt,a4paper]{scrartcl}
-\usepackage{MeinStil}
+\usepackage{../MeinStil}
 %\makeindex
 
-%\includeonly{.tex/Grundgedanken} % funktioniert nicht so richtig
+\includeonly{./tex/Grundgedanken} 
+
 
 \begin{document}
 
-%\input {./Startseiten}
-\input {./tex/Grundgedanken}
-%\input {./tex/Honigbuch}
-%\input {./Schlussseiten}
+\include {./Startseiten}
+\include {./tex/Grundgedanken}
+\input {./tex/Honigbuch}
+\include {./Schlussseiten}
 
 %\printindex
 
+\include {./Anhang}
 \end{document}

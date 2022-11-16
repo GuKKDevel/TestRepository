@@ -27,7 +27,8 @@
   node distance=1cm and 2.5cm, 
 ]
 % Tabellen
-  \matrix(A)[vtab]{Artikel\\{Artikelnummer\newline Artikelname}\\\\};
+  \matrix(A)[vtab] {Artikel\\{Artikelnummer\newline Artikelname}\\\\};
+\node [red,above] at (A-1-1.north) {XXXXXXX};
   % für matrix P reichen 2cm als Breite
   \matrix(P)[right= of A,vtab=2cm]{Position\\Anzahl\\\\};
   \matrix(B)[right= of P,vtab]{Bestellung\\{Bestellnummer\newline Bestelldatum}\\\\};
