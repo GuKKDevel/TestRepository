@@ -1,23 +1,42 @@
 \documentclass[12pt,a4paper]{scrartcl}
-\usepackage{../MeinStil}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{varioref}
+\usepackage{makeidx}
+%
+% Packages für Textverarbeitung
+%
+\usepackage{ifthen}
+\usepackage{xstring}
+\usepackage{xifthen}
+%
+% Packages für die Graphiken
+%
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
 
-\newcommand{\DBtable}[2]{
-\noindent{#1  <-->   #2 
-IstLeer:\isempty{#2}
-\newline
-Enthält Sterne:\IfSubStr{#2}{*}{true}{false}
-\newline
-Anzahl Sterne: \StrCount{#2}{*}
-\newline
-
-} % ende \noindent
-} % End DBtable
-
-
+%\usepackage{../MeinStil}
 \begin{document}
 
-\DBtable {Tabellenname}{pk,p}
-\bigskip
-\DBtable {Tabname}{pk ,p * pfk ,pf * fk, f * nf, n }
+\newcommand{\isNOTempty} [1]
+{	
+	\ifthenelse{\equal{\empty#1}{\empty}}{false}{true}
+}
+Tabellenname  <-->   pk,p
+\newline
+
+Ist nicht Leer:\isNOTempty{pk,p}
+\newline
+
+\isNOTempty{}
+\newline
+
+Enthält Sterne:\IfSubStr{pk,p}{*}{true}{false}
+\newline
+Anzahl Sterne: \StrCount{pk,p}{*}
+\newline
 
 \end{document}
