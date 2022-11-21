@@ -1,42 +1,42 @@
 \documentclass[12pt,a4paper]{scrartcl}
-\usepackage[utf8]{inputenc}
-\usepackage[ngerman]{babel}
-\usepackage[T1]{fontenc}
-\usepackage{varioref}
-\usepackage{makeidx}
-%
-% Packages für Textverarbeitung
-%
-\usepackage{ifthen}
-\usepackage{xstring}
-\usepackage{xifthen}
-%
-% Packages für die Graphiken
-%
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{tikz}
+\usepackage{../MeinStil}
+\usepackage{../myMacros}
+\usepackage{../Testoptionen}
+%\usepackage{etoolbox}
 
-%\usepackage{../MeinStil}
+\newcommand{\DBTable} [2]
+{ % Befehl DBTable
+% =======================================================
+% abspeichern der Parameter
+% -------------------------------------------------------------------------------------------------------------
+% abspeichern Tabellen-Name
+%
+\ifx \\#1\\
+	\newcommand{\tabname}{TableNameMissing}
+\else
+	\newcommand {\tabname} { #1 } 
+\fi
+% -------------------------------------------------------------------------------------------------------------
+% abspeichern Tabellen-Struktur
+%
+\ifx \\#2\\
+	\newcommand{\tabstruct}{TableStructureMissing}
+\else
+	\newcommand{\tabstruct}{#2}
+\fi
+% =======================================================
+\tabname   \\  \tabstruct 
+
+
+
+
+} %Ende DBTable
+
+
 \begin{document}
 
-\newcommand{\isNOTempty} [1]
-{	
-	\ifthenelse{\equal{\empty#1}{\empty}}{false}{true}
-}
-Tabellenname  <-->   pk,p
-\newline
+\DBTable{SCHLEUDERUNG}{Schleuderung, p* Beute, f*, Datum}
 
-Ist nicht Leer:\isNOTempty{pk,p}
-\newline
-
-\isNOTempty{}
-\newline
-
-Enthält Sterne:\IfSubStr{pk,p}{*}{true}{false}
-\newline
-Anzahl Sterne: \StrCount{pk,p}{*}
-\newline
+%\tabName
 
 \end{document}
