@@ -1,0 +1,34 @@
+\documentclass[12pt,a4paper]{scrartcl}
+\usepackage{../MeinStil}
+%\usepackage{../myMacros}
+%\usepackage{../Testoptionen}
+
+\def\DBTable#1#2
+{ % Befehl DBTable
+% =======================================================
+% abspeichern des Parameters für den Tabellennamen
+\def\leer{}
+\def\DBtabname{#1} 
+\ifx \DBtabname\leer	
+	\DBtabname{missing}
+\fi
+\DBtabname
+% abspeichern des Parameters für die Tabellenstruktur\def\DBtabstruct{#1} 
+
+\def\DBtabstruct{#2} 
+\ifx \DBtabstruct\leer	
+	\DBtabstruct{missing}
+\fi
+\DBtabstruct
+
+
+} %Ende DBTable
+
+
+\begin{document}
+
+\DBTable {SCHLEUDERUNG,SCHL}{Schleuderung, p* Beute, f*, Datum}
+
+%\tabName
+
+\end{document}

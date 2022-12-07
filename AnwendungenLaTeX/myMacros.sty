@@ -1,10 +1,19 @@
-\documentclass[12pt,a4paper]{scrartcl}
-\usepackage{../MeinStil}
-\usepackage{../myMacros}
-\usepackage{../Testoptionen}
-%\usepackage{etoolbox}
-
-\newcommand{\DBTable} [2]
+%
+% AbfragenAufLeerenParameter
+%
+\def\Leer#1
+{
+\def\leer{}
+\def\param{#1} 
+\ifx \param\leer	
+	\param{missing}
+	
+	%\else
+%	\newcommand {\tabname} { #1 } 
+\fi
+\param
+}
+\newcommand{\DBTableEins} [2]
 { % Befehl DBTable
 % =======================================================
 % abspeichern der Parameter
@@ -31,12 +40,3 @@
 
 
 } %Ende DBTable
-
-
-\begin{document}
-
-\DBTable{SCHLEUDERUNG}{Schleuderung, p* Beute, f*, Datum}
-
-%\tabName
-
-\end{document}
